@@ -96,20 +96,25 @@ add_action('wp_footer', function () {
     <script>
         class CookieConsent {
             constructor() {
+                this.opened = false;
                 const cookie = localStorage.getItem("cookieConsent")
                 document.addEventListener("DOMContentLoaded", (event) => {
                     if (cookie && cookie == 'accepted') {
                         this.loadAnalytics()
                     }
-                    
+
                 });
-                if (!cookie) {
-                    document.addEventListener('scroll', () => {
+                document.addEventListener('scroll', () => {
+                    if (!cookie && !this.opened) {
                         if (window.scrollY > 150) {
                             this.divStyle("block")
+                            this.opened = true;
                         }
-                    });
-                }
+                    } else if (cookie) {
+                        this.divStyle("none")
+                    }
+                });
+
             }
 
             loadAnalytics() {
