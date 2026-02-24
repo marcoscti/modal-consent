@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Modal Consent
  * Description: Adiciona um modal flutuante para notificar o uso de cookies
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Marcos Cordeiro
  * Author URI: https://github.com/marcoscti
  * License: GPL2
